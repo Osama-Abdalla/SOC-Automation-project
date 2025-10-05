@@ -34,9 +34,11 @@ The following diagram illustrates the automated incident response pipeline:
 <img width="1769" height="871" alt="image" src="https://github.com/user-attachments/assets/2f566261-52ce-4e23-80f3-cd6495c3893d" />
 
 - Opening windows event viewer to forword sysmon events from the agent to wazuh manager.
+  
 ![5963116230397251224](https://github.com/user-attachments/assets/6b66b194-fe08-448a-9646-07fecb9d3d3b)
 
-- Edit wazuh agent ossec.config file (need admin prevelige) .Then forword events to the manager
+- Edit wazuh agent ossec.config file (need admin prevelige) .Then adding the IP adress of the manager to forword events.
+  
 ![5963116230397251225](https://github.com/user-attachments/assets/cfa7b590-dae2-4781-a7ae-3dffdfed1054)
 
 
