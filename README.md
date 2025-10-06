@@ -9,7 +9,7 @@ This project automates a key Security Operations Center (SOC) workflow. It conne
 
 *   **SIEM / EDR:** [Wazuh](https://wazuh.com/)
 *   **SOAR Platform:** [Shuffle](https://shuffler.io/)
-*   **Case Management:** [TheHive](https://strangebee.com/thehive/)
+*   **Case Management:** [TheHive](https://strangebee.com/thehive/) (I didn configer it because i dont have enough RAMS )  
 *   **Infrastructure:** Docker, Virtual Machines.
 
 
@@ -70,7 +70,7 @@ wazuh-monitoring-*: Holds health and status data for all deployed Wazuh agents.
 <img width="1765" height="986" alt="image" src="https://github.com/user-attachments/assets/2ce72aa6-852d-449f-9384-89ffc43a589f" />
 
 ## Create rules 
-- On wazuh dashboard we opened rules file (local_rules.xml),and add rule to detect mimikatz with its (originalFoleName) so that even if the name changed is still detected. I changed the name to fakename.exe
+- On wazuh dashboard we opened rules file (local_rules.xml),and add rule to detect mimikatz with its (originalFileName) so that even if the name changed is still detected. I changed the name to fakename.exe
 
 <img width="1772" height="566" alt="image" src="https://github.com/user-attachments/assets/ffc1ae4f-fcb6-46c2-9e7a-136fc18996fc" />
   
@@ -85,6 +85,23 @@ wazuh-monitoring-*: Holds health and status data for all deployed Wazuh agents.
 <img width="1782" height="991" alt="image" src="https://github.com/user-attachments/assets/ef7fd3e4-22df-4201-bd06-28433f961d97" />
 
 ## Integreate to Shuffle SOAR
+
+- We used Shuffle as our SOAR (Security Orchestration, Automation, and Response) platform. It acted as the brain of our automation, connecting all our tools together. When Wazuh detected a threat like Mimikatz, Shuffle would automatically:
+- Grab the suspicious file's hash.
+- Check it with VirusTotal.
+- Create an alert in TheHive.
+- Email the SOC team.
+- This entire process happened automatically in Shuffle, turning separate tools into one seamless security system.
+
+<img width="952" height="480" alt="image" src="https://github.com/user-attachments/assets/fdd21df7-e011-4ff6-9be6-3abf6f915323" />
+
+- I configured the integration between Wazuh and Shuffle by editing the ossec.conf file on the Wazuh manager. This setup automatically sent security alerts to Shuffle whenever my custom rules were triggered, enabling the automated response workflow.<rule_id>100002<rule_id> 
+
+<img width="947" height="586" alt="image" src="https://github.com/user-attachments/assets/6c6c07a6-703f-452c-a1dc-98c052f21841" />
+
+<img width="1761" height="902" alt="image" src="https://github.com/user-attachments/assets/63180fa6-7aa0-4ba3-8022-5ec6d1c2c77e" />
+
+<img width="991" height="380" alt="image" src="https://github.com/user-attachments/assets/37fb81cb-0ea8-4257-962c-7899e29bedf0" />
 
 
 ## 🚀 Key Features & Achievements
